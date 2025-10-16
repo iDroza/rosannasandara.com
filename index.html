@@ -10,6 +10,7 @@
       --purple: #9900FF;
       --white: #FFFFFF;
       --bg: #000000;
+      --muted: #444444;
     }
     html, body {
       height: 100%;
@@ -21,13 +22,11 @@
       font-weight: 700;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
-    }
-    .wrap {
-      min-height: 100%;
-      display: grid;
-      place-items: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
       text-align: center;
-      padding: 2rem;
     }
     .line {
       font-size: clamp(28px, 6vw, 56px);
@@ -38,13 +37,31 @@
     .purple {
       color: var(--purple);
     }
+
+    /* Subtle footer link signature */
+    .footer-link {
+      position: fixed;
+      bottom: 16px;
+      font-size: 0.85rem;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.3s ease, opacity 0.3s ease;
+      opacity: 0.6;
+      letter-spacing: 0.5px;
+    }
+    .footer-link:hover {
+      color: var(--white);
+      opacity: 1;
+    }
   </style>
 </head>
 <body>
-  <main class="wrap" role="main" aria-label="Message">
+  <main role="main" aria-label="Message">
     <h1 class="line">
       <span>I miss my </span><span class="purple">drozqfangirl</span><span>.</span>
     </h1>
   </main>
+
+  <a href="https://drozq.com" class="footer-link" target="_blank" rel="noopener noreferrer">drozq.com</a>
 </body>
 </html>
