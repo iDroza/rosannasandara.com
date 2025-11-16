@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>I love you Rosy.</title>
-  <meta name="description" content="A simple billboard of longing." />
+  <meta name="description" content="A simple billboard of love." />
   <style>
     :root {
       --purple: #9900FF;
@@ -12,9 +12,13 @@
       --bg: #000000;
       --muted: #444444;
     }
+
     html, body {
       height: 100%;
       margin: 0;
+    }
+
+    body {
       background: var(--bg);
       color: var(--white);
       font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text",
@@ -28,17 +32,50 @@
       align-items: center;
       text-align: center;
     }
+
     .line {
       font-size: clamp(28px, 6vw, 56px);
       line-height: 1.1;
       letter-spacing: 0.2px;
       margin: 0;
     }
+
     .purple {
       color: var(--purple);
     }
 
-    /* Subtle footer link signature */
+    /* Blur + slide-in animation */
+    .blur-word {
+      display: inline-block;
+      filter: blur(10px);
+      opacity: 0;
+      transform: translateY(-50px);
+      animation-name: blurIn;
+      animation-duration: 0.7s;
+      animation-timing-function: ease-out;
+      animation-fill-mode: forwards;
+      will-change: transform, filter, opacity;
+    }
+
+    @keyframes blurIn {
+      0% {
+        filter: blur(10px);
+        opacity: 0;
+        transform: translateY(-50px);
+      }
+      60% {
+        filter: blur(5px);
+        opacity: 0.5;
+        transform: translateY(5px);
+      }
+      100% {
+        filter: blur(0px);
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Subtle bottom link */
     .footer-link {
       position: fixed;
       bottom: 16px;
@@ -56,14 +93,18 @@
   </style>
 </head>
 <body>
-  <main role="main" aria-label="Message">
+  <main>
     <h1 class="line">
-      <span>I love you </span><span class="purple">Rosy</span><span>.</span>
+      <span class="blur-word" style="animation-delay: 0s;">I</span>&nbsp;
+      <span class="blur-word" style="animation-delay: 0.12s;">love</span>&nbsp;
+      <span class="blur-word" style="animation-delay: 0.24s;">you</span>&nbsp;
+      <span class="blur-word purple" style="animation-delay: 0.36s;">Rosy</span><span class="blur-word" style="animation-delay: 0.48s;">.</span>
     </h1>
   </main>
 
-  <a href="https://drozq.com" class="footer-link" target="_blank" rel="noopener noreferrer">drozq.com</a>
+  <a href="https://drozq.com" class="footer-link" target="_blank" rel="noopener noreferrer">
+    drozq.com
+  </a>
 </body>
 </html>
-
 
